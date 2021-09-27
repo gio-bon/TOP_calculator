@@ -1,7 +1,6 @@
 const teclas = document.getElementsByClassName('tecla');
 const visor = document.getElementById('visor')
 
-
 for(let i = 0; i < teclas.length; i++){
     teclas[i].addEventListener('click', function(){
         value = teclas[i].innerHTML;
@@ -21,13 +20,20 @@ function limpar(){
 
 function apagar(){
     let nums = visor.innerHTML;
-    let numString = nums.split('');
-    numString.pop()
-    numString = numString.join('');
-    visor.innerHTML = numString;
+    let numConvert = nums.split('');
+    numConvert.pop()
+    numConvert = numConvert.join('');
+    visor.innerHTML = numConvert;
 }
 
-//converter para array
-//se tiver um ponto, encontrar uma forma de selecionar o espaço entre sinais para juntar
-//fazer as operações aritméticas
-//entregar o resultado 
+function calcularIgual(){
+    let resultado = document.getElementById('visor').innerHTML;
+    if(resultado)
+    {
+        document.getElementById('visor').innerHTML = eval(resultado);
+    }
+    else
+    {
+        document.getElementById('visor').innerHTML = "0"
+    }
+}
